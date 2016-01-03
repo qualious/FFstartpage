@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>&#9801</title>
+                <meta charset="utf-8">
+        <script src="jquery.min.js"></script>
+        <script src="main.js"></script>
+                <link rel="stylesheet" type="text/css" href="fonts/font.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body onload="javascript:init();">
+
+    <div id="clock">00:00 am</div>
+        <div id="container">
+            <div id="cell">
+                <div class="sqr">
+                    <span>Watch</span>
+                    <div class="content">
+		<a href="http://youtube.com">Youtube</a><br>
+                      <a href="http://www.twitch.tv/">Twitch</a><br>
+                      <a href="http://www.twitch.tv/directory/game/Dota%202/">Twitch D2</a><br>
+		<a href="http://unutulmazfilmler.co/">Film</a><br>
+		<a href="http://www.dizist.net/">Dizist</a><br>
+		<a href="http://www.dizipub.com/">Dizipub</a><br>
+		<a href="http://kissanime.com">Anime</a><br>
+                    </div>
+                </div>
+                <div class="sqr">
+                    <span>Daily</span>
+                    <div class="content">
+                        <a href="https://www.yemeksepeti.com/istanbul">Yemeksepeti</a><br>
+                        <a href="http://hotmail.com">Hotmail</a><br>
+                        <a href="http://www.gmail.com">Gmail</a><br>
+                        <a href="https://kat.cr/">KAT</a><br>
+                        <a href="http://facebook.com/">  Facebook</a><br>
+                        <a href="http://dota2lounge.com/">Dota2 Lounge</a><br>
+                        <a href="http://csgolounge.com/">  CS:GO Lounge</a><br>
+                       </div>
+                </div>
+                <div class="sqr">
+                    <span>School</span>
+                    <div class="content">
+                    <a href="https://lms.ozyegin.edu.tr/login/index.php">LMS</a><br>
+    		       <a href="http://srl.ozyegin.edu.tr/cs101/">SRL</a><br>
+    	 	       <a href="https://sis.ozyegin.edu.tr/OZU_GWT/login.jsp">SIS</a><br>
+    	       	 <a href="http://www.seslisozluk.net/">Sozluk</a><br>
+                    <a href="http://10minutemail.com/10MinuteMail/index.html">10 Minute Mail</a><br>
+                    <a href="http://www.deviantart.com/browse/all/">Deviantart</a><br>
+                    <a href="http://alpha.wallhaven.cc/">Wallhaven</a><br>
+    			
+                    </div>
+                </div>
+                <div class="sqr">
+    <span>Reddit</span>
+    <div class="content">
+         <a href="http://reddit.com/">Front</a><br>
+         <a href="http://reddit.com/r/Dota2">Dota2</a><br>
+         <a href="http://reddit.com/r/GlobalOffensive">CS:GO</a><br>
+         <a href="http://reddit.com/r/mechanicalkeyboards">Mechanical Keyboards</a><br>
+         <a href="http://reddit.com/r/videos">Videos</a><br>
+         <a href="http://reddit.com/r/jailbreak">Jailbreak</a><br>
+         <a href="http://reddit.com/r/iosthemes">iOSthemes</a><br>
+    </div>
+</div>
+<div class="sqr">
+    <span>4chan</span>
+    <div class="content">
+    	<a href="http://boards.4chan.org/wg/">/wg/</a><br>
+ 	<a href="http://boards.4chan.org/g/">/g/</a><br>
+	<a href="http://boards.4chan.org/b/">/b/</a><br>
+	<a href="http://boards.4chan.org/vg/">/vg/</a><br>
+	<a href="http://boards.4chan.org/gif/">/gif/</a><br>
+	<a href="http://boards.4chan.org/mu/">/mu/</a><br>
+	<a href="http://boards.4chan.org">/boards/</a><br>
+    </div>
+</div>
+
+<div id="center">
+    <div id="content">
+        <br />
+        <input type="text" id="q" value="" placeholder="Search..." autofocus="autofocus" onkeypress="javascript:handleQuery(event,this.value);" onfocus="this.value=this.value" />
+        <br /><br />
+   </div>
+</div>
+    </body>
+
+<style type="text/css">
+html,body {
+    margin: 0; padding: 0; overflow: hidden;
+    width: 100%; height: 100%;
+}
+*:focus  { outline: none; }
+ul, li   { list-style-type: none; margin: 0; padding: 0; }
+textarea { background: transparent; color: #CECFD1; }
+
+a, a:link, a:visited { }
+a:hover, a:active    {}
+
+#q {
+    width: calc((200px * 4) - (8px * 2));
+    background: #2A303B; color: #B3BDCB;
+    border: 0; border-radius: 1px;
+    padding: 4px 8px; height: 24px;
+}
+
+#preview { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+#overlay {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; z-index: 2;
+    opacity: 1; transition: .5s;
+    /* Uncomment below and disable 'showPreview' in the javascript to use custom background image */
+    /*
+    background: url('file:///home/guest/lewd-twily.jpg') no-repeat center center fixed;
+    background-size: cover; opacity: .25;
+    /**/
+}
+
+#center { position: relative; width: 100%; height: 100%; }
+#center #content {
+    margin-top: 300px; overflow: visible; width: 100%; height: auto;
+    position: fixed; top: 50%; transform: translate(0,-50%);
+    text-align: center; opacity: 1; z-index: 10; color: #AAABAD;/* #17181A || transparent */
+}
+
+#q {
+    width: calc((200px * 4) - (8px * 2));
+    border: 0; border-radius: 1px;
+    padding: 4px 8px; height: 24px;
+}
+
+#more {
+    background: transparent; color: #AAABAD; display: block; 
+    text-align: center; margin: 0 auto; width: 32px; height: 32px;
+    font-weight: bold; cursor: default;
+}
+    #plus {
+        border: 0; border-radius: 1px 1px 0 0; width: 32px; height: 32px; font-size: 12pt;
+        background: transparent; color: #CECFD1; font-weight: bold; cursor: pointer;
+        transition: .2s ease-out;
+    }
+    #help {
+        display: block; visibility: hidden; width: 320px; cursor: default;
+        position: absolute; left: 0; right: 0; margin: auto;
+        padding: 8px; text-align: left; border-radius: 1px; opacity: 0;
+        transition: .2s ease-out;
+    }
+    #more:hover #plus { background: #27282B; }
+    #more:hover #help { visibility: visible; opacity: 1; }
+        #note { width: 100%; height: 100px; resize: none; border: 0; outline: 0; }
+
+</style>
+
+<script type="text/javascript" language="javascript">
+function handleQuery(e,q) { // Handle search query
+    var key=e.keyCode || e.which;
+
+    if(key==13) { // Enter
+        var x=q.lastIndexOf("!");
+
+        if(x!=-1 && x>=q.length-2) {
+            for(i=0;i<search.length;i++) {
+                if(search[i][0]==q.substr(x)) { // Find "*!i"
+                    window.location=search[i][1]+q.substr(0,x).replace(/&/g,"%26");
+                    return true;
+                }
+            }
+            // Invalid "!i", use default
+            window.location=ss+q.substr(0,x).replace(/&/g,"%26");
+        } else {
+            // "!i" where not specified, use default
+            window.location=ss+q.replace(/&/g,"%26");
+        }
+    }
+}
+var search=[ // Search engines
+    ["",    "https://www.google.co.uk/#q="],                           // Google (Default)
+    ["!g",  "https://www.google.com.tr/#q="],                           // Google
+    ["!i",  "https://www.google.com/search?tbm=isch&q="],            // Google Images
+    ["!m",  "http://www.imdb.com/find?q="],                         // IMDb
+    ["!u",  "http://www.urbandictionary.com/define.php?term="],     // Urban Dictionary
+    ["!w",  "http://en.wikipedia.org/w/index.php?search="],         // Wikipedia
+    ["!y",  "https://www.youtube.com/results?search_query="],       // YouTube
+];
+
+function handleQuery(e,q) { // Handle search query
+    var key=e.keyCode || e.which;
+
+    if(key==13) { // Enter
+        var x=q.lastIndexOf("!");
+
+        if(x!=-1 && x>=q.length-2) {
+            for(i=0;i<search.length;i++) {
+                if(search[i][0]==q.substr(x)) { // Find "*!i"
+                    window.location=search[i][1]+q.substr(0,x).replace(/&/g,"%26");
+                    return true;
+                }
+            }
+            // Invalid "!i", use default
+            window.location=ss+q.substr(0,x).replace(/&/g,"%26");
+        } else {
+            // "!i" where not specified, use default
+            window.location=ss+q.replace(/&/g,"%26");
+        }
+    }
+}
+
+function init() {
+    for(i=0;i<search.length;i++) if(search[i][0]=="") ss=search[i][1];
+    if(ss=="") alert("Error: Missing default search engine!");
+
+    $('help').innerHTML=help;
+    if(localStorage.getItem('note')!=null) if(localStorage.getItem('note').length!=0) toggleNote();
+    build();
+
+    if(showPreview) preview(0,0);
+    $('q').value="";
+    $('q').focus();
+}
+</script>
+
+</html>
